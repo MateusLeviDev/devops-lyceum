@@ -17,10 +17,14 @@ public class LogsType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
-    @Column(name = "changes")
+    @Column(name = "type")
     private String type;
+
+    public LogsType(String type) {
+        this.type = type;
+    }
 }
 
 
