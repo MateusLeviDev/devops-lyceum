@@ -5,7 +5,7 @@ import nvoip.api.domains.Log;
 import nvoip.api.domains.LogsType;
 import nvoip.api.domains.Mistakes;
 import nvoip.api.domains.User;
-import nvoip.api.exceptions.ElementNotFoundException;
+import nvoip.api.exceptions.BusinessException;
 import nvoip.api.repositories.LogsTypeRepository;
 import nvoip.api.repositories.MistakesRepository;
 import nvoip.api.repositories.UserRepository;
@@ -20,12 +20,12 @@ public class CoreService {
 
     public User findUserByNumbersip(String numbersip) {
         return this.userRepository.findByNumbersip(numbersip)
-                .orElseThrow(() -> new ElementNotFoundException("Numbersip not found!"));
+                .orElseThrow(() -> new BusinessException("Numbersip not found!"));
     }
 
-    public void createMistake(Integer id, String error) {
-        Mistakes mistakes = new Mistakes(id, error);
-        this.mistakesRepository.save(mistakes);
+    public void createMistake(String message) {
+        this.mistakesRepository.save(Mistakes.builder()
+                .error(message).build());
     }
 
     public void createLog(String message, int idUser, String ip, String type) {
