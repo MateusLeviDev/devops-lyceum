@@ -1,7 +1,8 @@
 package nvoip.api.mapper;
 
 import nvoip.api.domains.User;
-import nvoip.api.requests.UserRequest;
+import nvoip.api.requests.User.UserPostRequestBody;
+import nvoip.api.requests.User.UserPutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -15,5 +16,6 @@ public abstract class UserMapper {
      */
     public static final UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
-    public abstract User toMapper(UserRequest request);
+    public abstract User toMapper(UserPostRequestBody request);
+    public abstract User toMapper(UserPutRequestBody request);
 }
