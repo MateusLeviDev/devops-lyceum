@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Service
 public interface UserService {
-    Optional<User> createUser(UserPostRequestBody request);
     Page<User> findAllUsers(Pageable pageable);
     void replace(UserPutRequestBody userPutRequest);
     void deleteUser(Integer id);

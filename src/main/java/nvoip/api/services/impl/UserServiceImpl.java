@@ -21,18 +21,12 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
 
-    @Override
-    public Optional<User> createUser(UserPostRequestBody userPostRequest) {
-        if (repository.existsByEmail(userPostRequest.getEmail())) {
-            throw new BusinessException("Email already registered");
-        }
-        return Optional.of(repository.save(
-                UserMapper.INSTANCE.toMapper(userPostRequest)));
+    public User save(UserPostRequestBody userPostRequestBody) {
+        return repository.save(UserMapper.INSTANCE.toMapper(userPostRequestBody));
     }
 
-    public Optional<User> findUserById(Integer id) {
-        return Optional.ofNullable(repository.findById(id)
-                .orElseThrow(() -> new NotFoundException("user not found")));
+    public User findUserByIdOrThrowNotFoundException(Integer id) {
+        return repository.findById(id).orElseThrow(() -> new NotFoundException("User not found!"));
     }
 
     @Override
