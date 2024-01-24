@@ -44,3 +44,32 @@ management:
       
 https://www.youtube.com/watch?v=9nOMLOnXLHo
 
+@ManyToOne ------------------------------
+Isso significa que muitos objetos de uma classe estão associados a um único objeto de outra classe.
+Suponhamos que você tenha duas entidades, Pessoa e Endereco, onde uma pessoa pode ter apenas um endereço, 
+mas um endereço pode estar associado a várias pessoas. Nesse caso teamTwo onde a pessoa pode ter um id
+e o id pode estar associado a varios times
+
+- os ids estarão associados a diversos times no teamTwo or teamOne, pq ambos irão variar de acordo com o times
+selecionados. ou seja, sempre terá um único id, porém podem ser vários ids.
+
+@Entity
+public class Pessoa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String nome;
+
+    @ManyToOne
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+
+    // Getters e Setters
+}
+
+modelmapper ----------------------------
+instac dependency 
+user = modelMapper.map(dto, User.class);
+
+@bean no application.app
