@@ -1,0 +1,12 @@
+server:
+  error:
+    include-stacktrace: on_param
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/matchdiary
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
