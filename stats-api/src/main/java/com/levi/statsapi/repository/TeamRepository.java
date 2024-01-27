@@ -19,8 +19,4 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
             "   ORDER BY COUNT(COALESCE(m.teamOne.id, m.teamTwo.id)) DESC" +
             "   LIMIT 1)")
     Team findMostWatchedTeam();
-
-    @Query("SELECT t FROM team t ORDER BY t.id ASC")
-    List<Team> findAllOrderedById();
-
 }
