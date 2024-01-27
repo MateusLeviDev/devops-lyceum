@@ -48,14 +48,9 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public Match registerMatch(MatchRequestDTO matchRequestDTO) {
-        if (matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId()))
-            throw new RuntimeException("ERROR_2");
-
         matchRequestDTO.setDate(LocalDate.now());
 
-        Team teamOne = teamRepository.findById(matchRequestDTO.getTeamOneId()).orElseThrow(() -> new IllegalArgumentException("Time 1 não encontrado"));
-        Team teamTwo = teamRepository.findById(matchRequestDTO.getTeamTwoId()).orElseThrow(() -> new IllegalArgumentException("Time 2 não encontrado"));
-        Team supportedTeam = teamRepository.findById(matchRequestDTO.getSupportedTeamId()).orElseThrow(() -> new IllegalArgumentException("Time de torcida não encontrado"));
+        validateTeamsId(matchRequestDTO);
 
         return matchRepository.save(modelMapper.map(matchRequestDTO, Match.class));
     }
@@ -90,6 +85,19 @@ public class MatchServiceImpl implements MatchService {
             Team team = teamService.getTeamById(teamId);
             teamSetter.accept(team);
         }
+    }
+
+    private void validateTeamId(Long teamId, String message) {
+        this.teamRepository.findById(teamId).orElseThrow(() -> new RuntimeException(message));
+    }
+
+    private void validateTeamsId(MatchRequestDTO matchRequestDTO) {
+        if (matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId()))
+            throw new RuntimeException("ERROR_2");
+
+        validateTeamId(matchRequestDTO.getTeamOneId(), "Team id: " + matchRequestDTO.getTeamOneId() + " not found!");
+        validateTeamId(matchRequestDTO.getTeamTwoId(), "Team id: " + matchRequestDTO.getTeamTwoId() + " not found!");
+        validateTeamId(matchRequestDTO.getSupportedTeamId(), "Team id: " + matchRequestDTO.getSupportedTeamId() + " not found!");
     }
 
 }
