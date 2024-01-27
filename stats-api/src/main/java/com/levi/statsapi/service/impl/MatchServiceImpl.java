@@ -13,7 +13,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -81,7 +80,7 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public void deleteMatch(Long matchId) {
-
+        this.matchRepository.delete(this.getByIdOrThrowBadRequestException(matchId));
     }
 
     //SUPPORT METHODS *______________________________________*
@@ -92,4 +91,5 @@ public class MatchServiceImpl implements MatchService {
             teamSetter.accept(team);
         }
     }
+
 }
