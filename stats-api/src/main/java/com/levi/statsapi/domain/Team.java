@@ -1,10 +1,7 @@
 package com.levi.statsapi.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.web.bind.annotation.RestController;
 
 @Getter
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @NoArgsConstructor
 @AllArgsConstructor
 @RestController
+@Builder
 @Entity(name = "team")
 public class Team {
 
