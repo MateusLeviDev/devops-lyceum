@@ -39,7 +39,7 @@ class MatchRepositoryTest {
 
     @Test
     @DisplayName("Save creates Match")
-    void MatchRepository_SaveAll_ReturnSavedMatch() {
+    void testSaveAll_WhenSuccessful_ReturnSavedMatch() {
         //ARRANGE
         Match matchToBeSaved = MatchCreator.createMatchToBeSaved();
 
@@ -54,7 +54,7 @@ class MatchRepositoryTest {
 
     @Test
     @DisplayName("Find by id. Return Match")
-    void findById_ReturnsListOfMatch_WhenSuccessful() {
+    void testFindById_WhenSuccessful_ReturnsMatch() {
         //ARRANGE
         Match matchToBeSaved = MatchCreator.createMatchToBeSaved();
 
@@ -75,7 +75,7 @@ class MatchRepositoryTest {
 
     @Test
     @DisplayName("Save update match when successful. ")
-    void save_UpdateMatch_WhenSuccessful() {
+    void testSave_WhenSuccessful_UpdateMatch() {
         //ARRANGE
         Match matchToBeSaved = MatchCreator.createMatchToBeSaved();
         Match saved = this.matchRepository.save(matchToBeSaved);
@@ -92,7 +92,7 @@ class MatchRepositoryTest {
 
     @Test
     @DisplayName("Delete match when successful")
-    void delete_RemovesMatch_WhenSuccessful() {
+    void testDelete_WhenSuccessful_RemovesMatch() {
         //ARRANGE
         Match matchToBeSaved = MatchCreator.createMatchToBeSaved();
 
@@ -109,7 +109,7 @@ class MatchRepositoryTest {
 
     @Test
     @DisplayName("Find By id returns empty list when match is not found")
-    void findById_ReturnEmptyList_WhenMatchIsNotFound() {
+    void testFindById_WhenMatchIsNotFoundReturnEmptyList() {
         Optional<Match> matchId = this.matchRepository.findById(1L);
 
         Assertions.assertThat(matchId).isEmpty();

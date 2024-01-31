@@ -1,10 +1,7 @@
 package com.levi.statsapi.dto.Match;
 
 import com.levi.statsapi.domain.Team;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,6 +9,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class MatchRequestDTO {
 
     private Long id;

@@ -50,8 +50,6 @@ public class MatchServiceImpl implements MatchService {
     public Match registerMatch(MatchRequestDTO matchRequestDTO) {
         matchRequestDTO.setDate(LocalDate.now());
 
-        validateTeamsId(matchRequestDTO);
-
         return matchRepository.save(modelMapper.map(matchRequestDTO, Match.class));
     }
 
@@ -62,10 +60,6 @@ public class MatchServiceImpl implements MatchService {
         Match newMatch = modelMapper.map(matchRequestDTO, Match.class);
         newMatch.setId(savedMatchObject.getId());
         newMatch.setDate(matchRequestDTO.getDate() != null ? matchRequestDTO.getDate() : savedMatchObject.getDate());
-
-        setTeamIfNotNull(matchRequestDTO.getTeamOneId(), newMatch::setTeamOne);
-        setTeamIfNotNull(matchRequestDTO.getTeamTwoId(), newMatch::setTeamTwo);
-        setTeamIfNotNull(matchRequestDTO.getSupportedTeamId(), newMatch::setSupportedTeam);
 
         newMatch.setScoreTeamOne(matchRequestDTO.getScoreTeamOne() != null ? matchRequestDTO.getScoreTeamOne() : savedMatchObject.getScoreTeamOne());
         newMatch.setScoreTeamTwo(matchRequestDTO.getScoreTeamTwo() != null ? matchRequestDTO.getScoreTeamTwo() : savedMatchObject.getScoreTeamTwo());
@@ -80,7 +74,7 @@ public class MatchServiceImpl implements MatchService {
 
     //SUPPORT METHODS *______________________________________*
 
-    private void setTeamIfNotNull(Long teamId, Consumer<Team> teamSetter) {
+    private void checkTeamIfNotNull(Long teamId, Consumer<Team> teamSetter) {
         if (teamId != null) {
             Team team = teamService.getTeamById(teamId);
             teamSetter.accept(team);
