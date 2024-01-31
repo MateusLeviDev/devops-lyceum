@@ -10,8 +10,32 @@ public class MatchCreator {
         return Match.builder()
                 .id(1L)
                 .date(LocalDate.now())
-                .teamTwo(TeamCreator.createTeamOneToBeSaved())
-                .teamOne(TeamCreator.createTeamTwoToBeSaved())
+                .teamOne(TeamCreator.createTeamOneToBeSaved())
+                .teamTwo(TeamCreator.createTeamTwoToBeSaved())
+                .scoreTeamOne(1)
+                .scoreTeamTwo(2)
+                .supportedTeam(TeamCreator.createTeamOneToBeSaved())
+                .build();
+    }
+
+    public static Match createValidMatch() {
+        return Match.builder()
+                .id(1L)
+                .date(LocalDate.now())
+                .teamOne(TeamCreator.createTeamOneToBeSaved())
+                .teamTwo(TeamCreator.createTeamTwoToBeSaved())
+                .scoreTeamOne(1)
+                .scoreTeamTwo(2)
+                .supportedTeam(TeamCreator.createTeamOneToBeSaved())
+                .build();
+    }
+
+    public static Match createValidUpdatedMatch() {
+        return Match.builder()
+                .id(1L)
+                .date(LocalDate.now())
+                .teamOne(TeamCreator.createTeamOneToBeSaved())
+                .teamTwo(TeamCreator.createTeamTwoToBeSaved())
                 .scoreTeamOne(1)
                 .scoreTeamTwo(2)
                 .supportedTeam(TeamCreator.createTeamOneToBeSaved())
