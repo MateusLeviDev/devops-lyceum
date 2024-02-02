@@ -48,9 +48,15 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public Match registerMatch(MatchRequestDTO matchRequestDTO) {
+
+        if (matchRequestDTO.getTeamOneId().equals(matchRequestDTO.getTeamTwoId())) {
+            throw new RuntimeException("Teams Ids are equals");
+        }
+
         matchRequestDTO.setDate(LocalDate.now());
 
         return matchRepository.save(modelMapper.map(matchRequestDTO, Match.class));
+
     }
 
     @Override
@@ -76,7 +82,7 @@ public class MatchServiceImpl implements MatchService {
 
     private void checkTeamIfNotNull(Long teamId, Consumer<Team> teamSetter) {
         if (teamId != null) {
-            Team team = teamService.getTeamById(teamId);
+            Team team = teamService.getByIdOrThrowBadRequestException(teamId);
             teamSetter.accept(team);
         }
     }
