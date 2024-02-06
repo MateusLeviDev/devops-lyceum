@@ -3,6 +3,8 @@ package com.levi.statsapi.service.impl;
 import com.levi.statsapi.domain.Match;
 import com.levi.statsapi.domain.Team;
 import com.levi.statsapi.dto.Match.MatchRequestDTO;
+import com.levi.statsapi.exception.BadRequestException;
+import com.levi.statsapi.exception.ElementNotFoundException;
 import com.levi.statsapi.repository.MatchRepository;
 import com.levi.statsapi.repository.TeamRepository;
 import com.levi.statsapi.service.MatchService;
@@ -33,7 +35,7 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public Match getByIdOrThrowBadRequestException(Long matchId) {
-        return matchRepository.findById(matchId).orElseThrow(() -> new RuntimeException("ERROR_"));
+        return matchRepository.findById(matchId).orElseThrow(() -> new BadRequestException("ERROR_"));
     }
 
     @Override

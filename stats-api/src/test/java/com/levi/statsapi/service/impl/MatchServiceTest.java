@@ -76,7 +76,7 @@ class MatchServiceTest {
     }
 
     @Test
-    @DisplayName("getByIdOrThrowBadRequestException throws RunTimeException when match  is not found")
+    @DisplayName("getByIdOrThrowBadRequestException throws BadRequestException when match  is not found")
     void testGetByIdOrThrowBadRequestException_WhenMatchIsNotFound_ThrowsBadRequestException() {
         BDDMockito.when(matchRepositoryMock.findById(ArgumentMatchers.anyLong()))
                 .thenReturn(Optional.empty());
