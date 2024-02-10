@@ -83,3 +83,20 @@ o time vencedor de cada partida nesse winnerId em seguida, verifica-se se os obj
 ai ele soma o número de vitórias. 
 
 
+NEW FEATURES
+++++++++++++++++++
+
+Agrupamento de relatórios por equipe: Permita que os usuários obtenham relatórios agrupados por equipe, 
+mostrando estatísticas específicas para cada equipe individualmente. 
+
+Estatísticas por tipo de competição: Se o seu aplicativo cobrir diferentes tipos de competições esportivas 
+(por exemplo, campeonatos, copas, ligas), você pode adicionar estatísticas específicas para cada tipo de competição.
+- add um competições e brincar nessa ideia.
+
+Estatísticas detalhadas por equipe: Além das estatísticas gerais, você pode adicionar estatísticas mais detalhadas 
+para cada equipe, como número de vitórias em casa, número de vitórias fora de casa, etc.
+
+Exportação de relatórios (??)
+
+- security 
+- trabalhar as imagens em um bucket aws (pesquisar)
