@@ -50,7 +50,7 @@ public class MatchController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{matchId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<?> deleteMatch(@PathVariable Long matchId) {
         this.matchService.deleteMatch(matchId);

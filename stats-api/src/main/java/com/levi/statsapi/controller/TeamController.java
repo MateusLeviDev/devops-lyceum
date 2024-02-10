@@ -4,6 +4,7 @@ import com.levi.statsapi.domain.Team;
 import com.levi.statsapi.dto.Team.TeamRequestDTO;
 import com.levi.statsapi.dto.Team.TeamResponseDTO;
 import com.levi.statsapi.service.TeamService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -27,7 +28,7 @@ public class TeamController {
     }
 
     @PostMapping
-    public ResponseEntity<Team> createTeam(@RequestBody TeamRequestDTO teamRequestDTO) {
+    public ResponseEntity<Team> createTeam(@RequestBody @Valid TeamRequestDTO teamRequestDTO) {
         return new ResponseEntity<>(teamService.createteam(teamRequestDTO), HttpStatus.CREATED);
     }
 
@@ -49,7 +50,7 @@ public class TeamController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{teamId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<?> deleteTeam(@PathVariable Long teamId) {
         this.teamService.deleteTeam(teamId);
