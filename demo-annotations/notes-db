@@ -100,3 +100,5 @@ Exportação de relatórios (??)
 
 - security 
 - trabalhar as imagens em um bucket aws (pesquisar)
+Como armazenar imagens no Amazon S3
+"Integração de imagens do Amazon S3 em aplicação Java/Spring Boot"
