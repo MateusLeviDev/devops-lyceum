@@ -2,6 +2,7 @@ package com.levi.statsapi.service.impl;
 
 import com.levi.statsapi.domain.Match;
 import com.levi.statsapi.domain.Team;
+import com.levi.statsapi.dto.Report.ReportsResponseDTO;
 import com.levi.statsapi.repository.MatchRepository;
 import com.levi.statsapi.repository.TeamRepository;
 import com.levi.statsapi.service.ReportService;
@@ -19,6 +20,16 @@ public class ReportServiceImpl implements ReportService {
     public ReportServiceImpl(TeamRepository teamRepository, MatchRepository matchRepository) {
         this.teamRepository = teamRepository;
         this.matchRepository = matchRepository;
+    }
+
+    @Override
+    public ReportsResponseDTO getAllReports() {
+        Integer matchesQuantity = getMatchesQuantity();
+        Integer winsQuantity = getWinsQuantity();
+        Integer winPercentage = getWinPercentage();
+        Team mostWatchedTeam = getMostWatchedTeam();
+        Integer daysWithoutWatching = getDaysWithoutWatching();
+        return new ReportsResponseDTO(matchesQuantity, winsQuantity, winPercentage, mostWatchedTeam, daysWithoutWatching);
     }
 
     @Override
