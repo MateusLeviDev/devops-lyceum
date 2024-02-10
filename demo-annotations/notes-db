@@ -73,3 +73,13 @@ instac dependency
 user = modelMapper.map(dto, User.class);
 
 @bean no application.app
+
+ReportService --------------------------
+getWinsQuantity()
+
+No raciocínio, criamos uma stream em que filtramos e passamos por cada partida, buscando o resultado
+do time 1 e time 2 em cada partida. em seguida, criamos uma variável Long teamWinnerId onde settamos
+o time vencedor de cada partida nesse winnerId em seguida, verifica-se se os objetos sao equals e
+ai ele soma o número de vitórias. 
+
+
