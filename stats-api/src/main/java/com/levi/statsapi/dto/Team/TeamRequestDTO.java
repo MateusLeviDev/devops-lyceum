@@ -15,6 +15,6 @@ public class TeamRequestDTO {
     private String name;
     @NotEmpty(message = "name cannot be null or empty")
     private String state;
-    private String photo_url;
+    private String photoUrl;
 
 }

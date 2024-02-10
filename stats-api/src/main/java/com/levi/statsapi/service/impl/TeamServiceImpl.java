@@ -60,7 +60,7 @@ public class TeamServiceImpl implements TeamService {
         newTeam.setId(savedTeamObject.getId());
         newTeam.setName(teamRequestDTO.getName() != null ? teamRequestDTO.getName() : savedTeamObject.getName());
         newTeam.setState(teamRequestDTO.getState() != null ? teamRequestDTO.getState() : savedTeamObject.getState());
-        newTeam.setPhotoUrl(teamRequestDTO.getPhoto_url() != null ? teamRequestDTO.getPhoto_url() : savedTeamObject.getPhotoUrl());
+        newTeam.setPhotoUrl(teamRequestDTO.getPhotoUrl() != null ? teamRequestDTO.getPhotoUrl() : savedTeamObject.getPhotoUrl());
 
         this.teamRepository.save(newTeam);
     }

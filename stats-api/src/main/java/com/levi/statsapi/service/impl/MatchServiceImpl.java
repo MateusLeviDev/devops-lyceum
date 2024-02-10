@@ -63,7 +63,8 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public void updateMatch(MatchRequestDTO matchRequestDTO) {
-        Match savedMatchObject = this.getByIdOrThrowBadRequestException(matchRequestDTO.getId());
+        Match savedMatchObject = this.matchRepository.findById(matchRequestDTO.getId())
+                .orElseThrow(() -> new ElementNotFoundException("Id not found"));
 
         Match newMatch = modelMapper.map(matchRequestDTO, Match.class);
         newMatch.setId(savedMatchObject.getId());
