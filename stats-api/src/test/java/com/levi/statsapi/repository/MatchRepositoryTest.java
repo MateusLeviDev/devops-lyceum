@@ -2,8 +2,8 @@ package com.levi.statsapi.repository;
 
 import com.levi.statsapi.domain.Match;
 import com.levi.statsapi.domain.Team;
-import com.levi.statsapi.util.MatchCreator;
-import com.levi.statsapi.util.TeamCreator;
+import com.levi.statsapi.util.Match.MatchCreator;
+import com.levi.statsapi.util.Team.TeamCreator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

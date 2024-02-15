@@ -1,6 +1,5 @@
-package com.levi.statsapi.util;
+package com.levi.statsapi.util.Team;
 
-import com.levi.statsapi.dto.Match.MatchRequestDTO;
 import com.levi.statsapi.dto.Team.TeamRequestDTO;
 
 public class TeamPostCreator {

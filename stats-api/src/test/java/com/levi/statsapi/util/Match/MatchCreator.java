@@ -1,6 +1,7 @@
-package com.levi.statsapi.util;
+package com.levi.statsapi.util.Match;
 
 import com.levi.statsapi.domain.Match;
+import com.levi.statsapi.util.Team.TeamCreator;
 
 import java.time.LocalDate;
 

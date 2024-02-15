@@ -1,10 +1,9 @@
 package com.levi.statsapi.service.impl;
 
 import com.levi.statsapi.domain.Team;
-import com.levi.statsapi.dto.Team.TeamRequestDTO;
 import com.levi.statsapi.repository.TeamRepository;
-import com.levi.statsapi.util.TeamCreator;
-import com.levi.statsapi.util.TeamPostCreator;
+import com.levi.statsapi.util.Team.TeamCreator;
+import com.levi.statsapi.util.Team.TeamPostCreator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -16,12 +15,10 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import javax.swing.*;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 

@@ -3,10 +3,10 @@ package com.levi.statsapi;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class StatsApiApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 

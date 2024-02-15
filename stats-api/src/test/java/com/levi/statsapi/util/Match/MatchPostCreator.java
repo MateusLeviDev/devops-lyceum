@@ -1,4 +1,4 @@
-package com.levi.statsapi.util;
+package com.levi.statsapi.util.Match;
 
 import com.levi.statsapi.dto.Match.MatchRequestDTO;
 

@@ -1,4 +1,4 @@
-package com.levi.statsapi.util;
+package com.levi.statsapi.util.Team;
 
 import com.levi.statsapi.domain.Team;
 
