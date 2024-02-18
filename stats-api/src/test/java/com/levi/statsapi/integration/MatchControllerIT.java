@@ -1,14 +1,10 @@
 package com.levi.statsapi.integration;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import static org.hamcrest.Matchers.containsString;
-import com.levi.statsapi.domain.Match;
 import com.levi.statsapi.domain.Team;
 import com.levi.statsapi.dto.Match.MatchRequestDTO;
 import com.levi.statsapi.repository.MatchRepository;
 import com.levi.statsapi.repository.TeamRepository;
-import com.levi.statsapi.util.Match.MatchCreator;
 import com.levi.statsapi.util.Match.MatchPostCreator;
 import com.levi.statsapi.util.Team.TeamCreator;
 import org.junit.jupiter.api.Assertions;
@@ -25,20 +21,14 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.mock.http.MockHttpOutputMessage;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
-import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.io.IOException;
 import java.util.Arrays;
 
-import static org.springframework.mock.http.server.reactive.MockServerHttpRequest.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -106,6 +96,7 @@ public class MatchControllerIT {
                         .content(json))
                 .andExpect(status().isCreated());
     }
+
 }
 
 
