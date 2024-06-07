@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# The below input_file is file ".git/COMMIT_EDITMSG" where commits are stored
+INPUT_FILE=$1
+
+# Colors Setup
+Color_Off='\033[0m'
+Green='\033[1;32m'
+Yellow='\033[1;33m'
+Yellow_Light='\033[0;33m'
+Purple='\033[1;35m'
+Blue="\033[1;34m"
+Blue_Light="\033[0;34m"
+White="\e[1;97m"
+Bg_Green="\e[42m"
+Bg_Success="${Bg_Green}${White}"
+Bg_Red="\e[41m"
+Bg_Error="${Bg_Red}${White}"
+
+echo -e "${Blue}------------------>> Commit message validation <<------------------${Color_Off}"
+
+# It will copy the commit string from ".git/COMMIT_EDITMSG"
+COMMIT_MESSAGE=$(head -n1 "$INPUT_FILE")
+
+# Condition to validate commit message
+if [[ $COMMIT_MESSAGE =~ ^(feat|fix|test|refactor|style|build|chore|perf|ci|revert):\[ONE-[0-9]+\]\[ONE-[0-9]+\].+ || "$COMMIT_MESSAGE" =~ Merge.* ]]; then
+   echo -e "${Bg_Success}Commit message validated successfully!${Color_Off}"
+   exit 0
+else
+   echo -e "${Bg_Error}Invalid commit message:${Color_Off} ${Yellow}\"$COMMIT_MESSAGE\""
+   echo -e "${Blue}Expected pattern: ${Purple}prefix${Yellow_Light}:[ONE-${Purple}XXX${Yellow_Light}][ONE-${Purple}YYY${Yellow_Light}] Commit message"
+   echo -e "${Blue} ${Purple}prefix${Blue}: commit prefix ${Blue_Light}('feat', 'fix', 'test', ...)"
+   echo -e "${Blue} ${Purple}XXX${Blue}:    story number"
+   echo -e "${Blue} ${Purple}YYY${Blue}:    task number"
+   echo -e "${Blue}Example: ${Green}feat:[ONE-123][ONE-456] Implement new feature${Color_Off}"
+   exit 1
+fi
