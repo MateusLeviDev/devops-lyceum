@@ -136,3 +136,9 @@ ENV spring_profiles_active prod
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/app.jar"]
     
 ```
+
+
+- Mapeamento de Porta do Docker: O comando docker run -p 8000:8000 mapeia a porta 8000 do container para a porta 8000 da instância EC2. Isso significa que qualquer solicitação recebida na porta 8000 da EC2 será redirecionada para a porta 8000 no container onde seu app Django está rodando.
+- `docker run -p 8000:8000 it <id>`
+- podemos expor a porta por meio do nosso ec2 ubuntu
+- so precisamos add nossas inbound traficc rules no security no console da aws na parte das instancias 
