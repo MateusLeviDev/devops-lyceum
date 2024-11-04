@@ -1,9 +1,14 @@
 - `o que é um server?` é um sistema computacional dedicado. basicamente um serviço. que pode responder a solicitações do cliente, prover recursos
 <br>
+
 - `What's is bare metal?` consiste em um servidor físico dedicado que é provisionado e usado por um único cliente. o cliente tem acesso direto ao hardware subjacente, sem a intermediação de uma camada de virtualização.
+
 <br>
+
 - `o que é a Virtualization?` essa camada de virtulização se refere ao software (hypervisor) que permite que um único servidor físico seja dividido em múltiplos ambientes virtuais independentes
+
 Podemos abordar assim os namespaces nos processos de isolamento lógico and o firmware hypervisor que gerencia essas VMs criadas.
+
 
 1. **Namespaces**:
     - Os Namespaces fornecem um mecanismo para isolar e ocultar recursos do sistema operacional, criando instâncias virtuais desses recursos para processos específicos.
@@ -15,6 +20,7 @@ Podemos abordar assim os namespaces nos processos de isolamento lógico and o fi
         - **Mount**: Isola o sistema de arquivos, permitindo que cada contêiner tenha seu próprio sistema de arquivos raiz e montagens específicas.
         - **UTS (Unix Timesharing System)**: Isola o hostname e o domínio de nomes do sistema.
     - Esses namespaces ajudam a garantir que os contêineres sejam isolados uns dos outros e do host, proporcionando uma camada de segurança e confiabilidade.
+
 2. **cgroups (Control Groups)**:
     - Os cgroups permitem o controle e a limitação dos recursos do sistema, como CPU, memória, E/S de disco e largura de banda de rede, entre outros.
     - Eles dividem os recursos do sistema em grupos, permitindo que os administradores imponham políticas de alocação e limitação de recursos em cada grupo.
@@ -22,17 +28,28 @@ Podemos abordar assim os namespaces nos processos de isolamento lógico and o fi
     - Por exemplo, você pode definir limites de memória para cada contêiner, garantindo que nenhum deles use mais memória do que o permitido.
     - Os cgroups são essenciais para garantir a previsibilidade e o desempenho em ambientes de contêineres, onde várias cargas de trabalho podem estar sendo executadas em um único host.
 <br>
+
 - ou seja, um servidor, em ambientes de hypervisor, como VMware, permite que o servidor divida seus recursos (CPU, memória, armazenamento) entre várias VMs.
+
 <br>
-- `O que é um container?` em um contexto genérico, são pacotes de software que contêm todos os elementos necessários (cod, runtime, tools) para serem executados em qualquer ambiente. Dessa forma, os contêineres virtualizam o sistema operacional e são executados em qualquer lugar, desde um data center privado até a nuvem pública ou até mesmo no laptop pessoal de um desenvolvedor.
+
+- `O que é um container?` em um contexto genérico, são pacotes de software que contêm todos os elementos necessários (cod, runtime, tools) para serem executados em qualquer ambiente. Dessa forma, os contêineres virtualizam o sistema operacional e são 
+executados em qualquer lugar, desde um data center privado até a nuvem pública ou até mesmo no laptop pessoal de um desenvolvedor.
+
 <br>
+
 - Containers, em um contexto geral, são uma forma de virtualização a nível de sistema operacional, onde diferentes ambientes de execução (como aplicativos e suas dependências) são isolados uns dos outros em um único sistema operacional. Eles oferecem uma alternativa mais leve e eficiente que as VMs, pois compartilham o kernel do sistema e não precisam de um sistema operacional completo para cada instância, mas sim de bibliotecas e dependências específicas para cada aplicativo.
+
 - LXC (Linux Containers): É uma das primeiras implementações de containers no Linux, lançada em 2008. LXC usa namespaces e cgroups do kernel Linux para isolar processos e limitar recursos, permitindo que diferentes ambientes rodem no mesmo host de forma segura e isolada.
+
 - `Docker` is dependent of docker engine. se a docker engine cair os containers param de rodar. a single point of failure. para solucionar este e outros problemas relacionados a containers, e the image is being built from docker file it creates a lot of layers, podemos usar o Buildah. will 
 
 <br>
+
 take a look...
+
 [link](https://www.youtube.com/watch?v=AvMEVN98Xec)
+
 <br>
 
 - o container no docker usa o host da máquina q ele esta rodando, mas ainda assim possui basic folders que promovem o isolamento necessário para a segurança
