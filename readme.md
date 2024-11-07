@@ -292,4 +292,6 @@ Por Que o Primeiro Estágio Não Está na Imagem Final?
 Com o multi-stage build, apenas a última etapa é usada para criar a imagem final do Docker. Todas as dependências e ferramentas de desenvolvimento (como o Go e o sistema Ubuntu) estão presentes somente na primeira etapa e não são copiadas para a etapa final. A última etapa copia apenas o binário /app, garantindo que a imagem final seja o mais leve possível.
 ```
 
-- As imagens distroless são um tipo de imagem de contêiner que não inclui um sistema operacional completo, mas apenas o que é necessário para executar uma aplicação. O conceito foi desenvolvido pelo Google e é usado principalmente em ambientes de contêiner, como o Kubernetes, para melhorar a segurança e a eficiência das aplicações. Aqui estão alguns pontos-chave sobre as imagens distroless:
+- As imagens distroless são um tipo de imagem de contêiner que não inclui um sistema operacional completo, mas apenas o que é necessário para executar uma aplicação. O conceito foi desenvolvido pelo Google e é usado principalmente em ambientes de contêiner, como o Kubernetes, para melhorar a segurança e a eficiência das aplicações.
+
+No Docker, bind mounts e volumes são tipos de montagens que permitem a persistência de dados em containers, ou seja, eles permitem que dados sobrevivam à reinicialização ou remoção dos containers.
