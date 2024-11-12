@@ -54,6 +54,28 @@ In summary:
     CMD: Provides default arguments that can be overridden.
 
 
+```
+# Dockerfile
+FROM ubuntu:latest
+CMD ["echo", "Hello, World!"]
+
+
+
+
+Output: Hello, World!
+```
+
+```
+# Dockerfile
+FROM ubuntu:latest
+ENTRYPOINT ["echo", "Hello from ENTRYPOINT"]
+
+```
+
+- CMD: Quando você executa um container com docker run myimage ls -l e o Dockerfile tem apenas um CMD, esse comando substitui completamente o CMD, incluindo o comando e seus argumentos. Ou seja, Hello, World! será totalmente ignorado.
+- CMD é ideal quando você quer fornecer um comando padrão para o container, mas quer permitir que os usuários possam substituí-lo facilmente ao executar o container com outros comandos.
+- ENTRYPOINT é útil quando você quer garantir que um comando específico sempre será executado, independentemente dos argumentos fornecidos. Isso é ideal para containers que devem rodar uma aplicação específica ou um processo que não deve ser alterado.ENTRYPOINT é útil quando você quer garantir que um comando específico sempre será executado, independentemente dos argumentos fornecidos. Isso é ideal para containers que devem rodar uma aplicação específica ou um processo que não deve ser alterado.
+
 #### What are the networking types in docker and what's the default?
 
 - host
@@ -61,7 +83,7 @@ In summary:
 - overlay
 - MacVlan
 
-bridge tem uma virtual ethernet, V8 or docker network que é criada using wich container can acess your host network. This is typically used for containers that need to communicate with each other on the same host machine, but are isolated from the outside world. usando o host network you will bind your host network with the container network, sera parte do seu host network. When a container is started with the default network, Docker automatically creates a virtual bridge network (usually named bridge).
+bridge tem uma virtual ethernet, V8 or docker network (docker 0) que é criada using wich container can acess your host network. This is typically used for containers that need to communicate with each other on the same host machine, but are isolated from the outside world. usando o host network you will bind your host network with the container network, sera parte do seu host network. When a container is started with the default network, Docker automatically creates a virtual bridge network (usually named bridge).
 
 - Access to Host: Containers can access the host machine via the host network interface, typically through port mappings (-p flag).
 
@@ -70,3 +92,20 @@ bridge tem uma virtual ethernet, V8 or docker network que é criada using wich c
 - Overlay Network: This is used when you need containers to communicate across different Docker hosts (machines), typically in a Docker Swarm or `Kubernetes` setup.
 
 - Macvlan Network: This is used when you want each container to appear as a separate physical device on the network (with its own MAC address).
+
+#### Can you explain how to isolate networking betwwen containers?
+
+Sim, podemos fazer isso crindo uma networking personalizada, como em alguns dos exemplos de código no repo. 
+
+
+![Screenshot from 2024-11-12 19-45-10](https://github.com/user-attachments/assets/c0f40a9b-6605-431d-901f-9b2ecc5f91c0)
+
+
+![Screenshot from 2024-11-12 19-47-17](https://github.com/user-attachments/assets/260df6b3-2a20-42f5-8adf-43eb20deba7b)
+
+
+![Screenshot from 2024-11-12 19-48-24](https://github.com/user-attachments/assets/73d1a695-1f82-42da-a8ef-10284c465544)
+
+
+- https://www.youtube.com/watch?v=Y5HQmgTNAtw&list=PLdpzxOOAlwvLjb0vTD9BXLOwwLD_GWCmC&index=10
+
