@@ -41,4 +41,11 @@ kubernetes é basicamente um cluster, ou seja, a group of nodes.
 - o docker por si so n tem soluções enterprise level
 - um orq resolve isso. mas sim, o kubernetes n resolve tudo
 - n é como as VMs. nos anos 10s, geral tava nas VMs. algumas pessoas falam que é envidente que certas configs eram mais simples para integrar. VM oferece mais segurança (Isolamento Completo, Cada máquina virtual possui seu próprio sistema operacional e kernel) do que containers. mas esta evoluindo
-- em alguns aspectos, mais diretos e familiares para muitas equipes e organizações na época. Kubernetes e outras ferramentas de orquestração de containers ajudaram a simplificar essas configurações e a tornar os containers mais viáveis para ambientes de produção em larga escala,
+- em alguns aspectos, mais diretos e familiares para muitas equipes e organizações na época. Kubernetes e outras ferramentas de orquestração de containers ajudaram a simplificar essas configurações e a tornar os containers mais viáveis para ambientes de produção em larga escala.
+
+
+- no Kubernetes -> host -> nodes, ou seja, sao VMs que tem pods, que são unidades básicas de execução que contém 1 ou mais containers.
+
+- O Kubernetes não precisa da criação de imagens porque seu papel no ecossistema de contêineres é orquestrar e gerenciar contêineres em um cluster, e não criar ou construir imagens de contêiner.
+
+- Kubernetes trabalha com imagens de contêiner já criadas e armazenadas em registros como o Docker Hub, Google Container Registry (GCR), ou Amazon Elastic Container Registry (ECR).
