@@ -1,4 +1,4 @@
-<details> <summary><strong>Ver configuração usada no arquivo `.conf`</strong></summary>
+<details> <summary><strong>Locally nginx `.conf`</strong></summary>
 
 ```
 log_format upstreamlog '$remote_addr - $remote_user [$time_local] '
