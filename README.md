@@ -1,5 +1,7 @@
 <details> <summary><strong>Locally nginx `.conf`</strong></summary>
 
+
+
 ```
 log_format upstreamlog '$remote_addr - $remote_user [$time_local] '
                        '"$request" $status $body_bytes_sent '
@@ -68,5 +70,7 @@ server {
 
 ![Screenshot from 2025-06-26 19-29-00](https://github.com/user-attachments/assets/df43da36-ed2f-4f87-bde9-31043b65bee3)
 
+
+- https://fedoraproject-org.translate.goog/wiki/Nginx?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc
 
 </details>
