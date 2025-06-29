@@ -1,4 +1,4 @@
-<details> <summary><strong>Locally nginx `.conf`</strong></summary>
+<details> <summary><strong>Locally nginx .conf</strong></summary>
 
 
 
@@ -64,6 +64,10 @@ server {
 - Route /count/[0-9]: Serves index.html for matching numeric paths; returns 404 if the file isn’t found.
 - Route /carbs: Serves static files from the /fruits directory using alias.
 - Route /vegetables: Tries to serve /vegetables/veggies.html; falls back to index.html if it doesn't exist.Route /crops: Performs a 307 Temporary Redirect to /fruits.
+- Forward Proxy: o cliente usa o proxy pra se proteger. frente do cliente e impede que os servidores saibam quem é o cliente. a comunicação é pelo proxy. tanto a request para o google.com, por exemplo, quanto a resposta do google.com. O servidor final nunca vê seu IP real. Ele só enxerga o IP do proxy.
+- Reverse Proxy: O proxy fica na frente do servidor e impede que os clientes saibam qual servidor realmente está por trás.
+Ou seja, o servidor usa o proxy para se proteger.
+- Load Balancer: distribui requisições entre vários servidores para garantir que nenhum fique sobrecarregado.
 
 
 ![Screenshot From 2025-06-26 18-50-26](https://github.com/user-attachments/assets/5195be4c-b469-4176-b16c-561edb36ca97)
